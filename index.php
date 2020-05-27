@@ -31,6 +31,7 @@
 </head>
 <body>
     <main>
+        <h1>Biblioteka</h1>
         <div class="library">
             <?php createTable();?>
         </div>
