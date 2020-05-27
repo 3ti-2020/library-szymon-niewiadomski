@@ -1,5 +1,5 @@
 <?php
-    $db = new mysqli('localhost', 'root', '', 'library');
+    require_once 'connect.php';
 
     function createTable(){
         global $db;
@@ -31,8 +31,18 @@
 </head>
 <body>
     <main>
-        <?php createTable();?>
-    
+        <div class="library">
+            <?php createTable();?>
+        </div>
+        <div class="insert">
+            <form action="insert.php" method="post" autocomplete="off" >
+                <input type="text" name="name" class="input" placeholder="Imię" required>
+                <input type="text" name="lastname" class="input" placeholder="Nazwisko" required>
+                <input type="text" name="title" class="input" placeholder="Tytuł" required>
+                <input type="number" min="1000000000000" max="9999999999999" name="isbn" class="input" placeholder="ISBN 13 cyfr" required>
+                <input type="submit" value="Dodaj książkę" class="button">
+            </form>
+        </div>
     </main>
 </body>
 </html>
