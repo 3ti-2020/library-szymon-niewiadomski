@@ -67,3 +67,36 @@ td, th{
     border-radius: 6px;
     color: aliceblue;
 }
+
+.delete{
+    margin: 1rem;
+}
+
+select{
+    padding: 1rem;
+    border: none;
+    width: 180px;
+}
+.delete-button{
+    padding: 1rem;
+    background: orangered;
+    color:aliceblue;
+    border: 1px solid aliceblue;
+}
+
+.form-column{
+    padding: 0;
+}
+.form-table, .delete-btn{
+    width: 100%;
+    height: 39px;
+}
+.delete-btn{
+    padding: 1rem;
+    background: orangered;
+    color: aliceblue;
+    border: none;
+}
+.delete-btn:hover, .delete-button:hover, .button:hover{
+    background: red;
+}
