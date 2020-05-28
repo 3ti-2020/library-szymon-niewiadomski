@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Maj 2020, 21:32
+-- Czas generowania: 28 Maj 2020, 10:07
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.4.1
 
@@ -39,8 +39,8 @@ CREATE TABLE `autorzy` (
 --
 
 INSERT INTO `autorzy` (`id_autor`, `imie`, `nazwisko`) VALUES
-(1, 'Adam', 'Mickiewicz'),
-(2, 'Olga', 'Tokarczuk');
+(28, 'Juliusz', 'Słowacki'),
+(30, 'Mikołaj', 'Kopernik');
 
 -- --------------------------------------------------------
 
@@ -59,9 +59,8 @@ CREATE TABLE `ksiazki` (
 --
 
 INSERT INTO `ksiazki` (`id_ksiazka`, `id_tytul`, `id_autor`) VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 3, 1);
+(27, 27, 28),
+(29, 29, 30);
 
 -- --------------------------------------------------------
 
@@ -80,9 +79,8 @@ CREATE TABLE `tytuly` (
 --
 
 INSERT INTO `tytuly` (`id_tytul`, `tytul`, `ISBN`) VALUES
-(1, 'Dziady cz. IV', 9788361237563),
-(2, 'Bieguni', 9788937444005),
-(3, 'Pan Tadeusz', 9780781800334);
+(27, 'Kordian', 1000000000002),
+(29, 'O obrotach sfer niebieskich', 1000000000007);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -92,19 +90,23 @@ INSERT INTO `tytuly` (`id_tytul`, `tytul`, `ISBN`) VALUES
 -- Indeksy dla tabeli `autorzy`
 --
 ALTER TABLE `autorzy`
-  ADD PRIMARY KEY (`id_autor`);
+  ADD PRIMARY KEY (`id_autor`),
+  ADD KEY `Autor` (`id_autor`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `ksiazki`
 --
 ALTER TABLE `ksiazki`
-  ADD PRIMARY KEY (`id_ksiazka`);
+  ADD PRIMARY KEY (`id_ksiazka`) USING BTREE,
+  ADD KEY `Tytuł` (`id_tytul`) USING BTREE,
+  ADD KEY `Autor` (`id_autor`);
 
 --
 -- Indeksy dla tabeli `tytuly`
 --
 ALTER TABLE `tytuly`
-  ADD PRIMARY KEY (`id_tytul`);
+  ADD PRIMARY KEY (`id_tytul`),
+  ADD KEY `Tytuł` (`id_tytul`);
 
 --
 -- AUTO_INCREMENT dla tabel zrzutów
@@ -114,19 +116,19 @@ ALTER TABLE `tytuly`
 -- AUTO_INCREMENT dla tabeli `autorzy`
 --
 ALTER TABLE `autorzy`
-  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT dla tabeli `ksiazki`
 --
 ALTER TABLE `ksiazki`
-  MODIFY `id_ksiazka` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_ksiazka` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT dla tabeli `tytuly`
 --
 ALTER TABLE `tytuly`
-  MODIFY `id_tytul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tytul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
